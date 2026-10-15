@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe5ef">
+<title>Ei Ei Soe (မား) ❤️ I Love You</title>
+<style>
+:root{--pink:#ff5c93;--deep:#b82762;--pale:#fff2f7;--cream:#fffafc;--text:#66334a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:linear-gradient(145deg,#fff6fa,#ffe0ec 48%,#fff7fb);overflow-x:hidden}
+.bg-hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{position:absolute;bottom:-50px;color:#ff6e9f;opacity:.22;animation:floatUp linear infinite}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1;max-width:900px;margin:auto;padding:22px 16px 56px}
+.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.card{width:100%;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 55px #c64c7620;border-radius:30px;padding:clamp(24px,6vw,58px);backdrop-filter:blur(8px)}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;color:#cf5c86;font-size:.76rem;font-weight:700}
+h1{font-family:Georgia,"Times New Roman",serif;color:var(--deep);font-size:clamp(2.5rem,9vw,5.4rem);line-height:1.06;margin:18px 0}
+.subtitle{font-size:clamp(1rem,3vw,1.25rem);line-height:1.8}
+.big-heart{font-size:clamp(3.4rem,12vw,6rem);display:inline-block;filter:drop-shadow(0 8px 12px #e35a8b40);animation:beat 1.4s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.12)}28%{transform:scale(1)}42%{transform:scale(1.08)}}
+button,.upload-label{border:0;border-radius:999px;background:linear-gradient(135deg,#ff77a6,#e74482);color:#fff;font-size:1rem;font-weight:700;padding:13px 22px;cursor:pointer;box-shadow:0 8px 20px #e7448230;display:inline-block}
+button:hover,.upload-label:hover{transform:translateY(-1px)}
+section{margin:24px 0}
+h2{font-family:Georgia,"Times New Roman",serif;text-align:center;color:var(--deep);font-size:clamp(1.8rem,6vw,2.6rem);margin:0 0 12px}
+.center{text-align:center}
+.love-note{line-height:2;font-size:1.05rem;white-space:pre-line}
+.hidden{display:none}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.photo-slot{min-height:150px;aspect-ratio:4/5;border:2px dashed #f4a4bf;border-radius:20px;background:#fff8fb;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;padding:12px;color:#bb5b7d}
+.photo-slot img{width:100%;height:100%;object-fit:cover}
+.gallery-tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+input[type=file]{display:none}
+.note-small{font-size:.85rem;line-height:1.6;color:#96677b}
+footer{text-align:center;padding:30px 10px 0;color:#ad6481;font-size:.9rem}
+@media(min-width:650px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.photo-slot{min-height:220px}}
+</style>
+</head>
+<body>
+<div class="bg-hearts" id="hearts"></div>
+<main>
+  <section class="hero">
+    <div class="card">
+      <div class="eyebrow">A little website, just for you</div>
+      <div class="big-heart" aria-hidden="true">💗</div>
+      <h1>Ei Ei Soe <span style="font-size:.58em">(မား)</span></h1>
+      <p class="subtitle"><strong>I Love You ❤️</strong><br>ဒီ Website လေးက မားအတွက် သီးသန့်ပါ။<br>မားပြုံးနေတာလေးက ကိုယ့်အတွက် အလှဆုံးပါပဲ။</p>
+      <button id="openLetter">ကိုယ့်အချစ်စာလေး ဖွင့်ကြည့်မယ် 💌</button>
+    </div>
+  </section>
+
+  <section class="card hidden" id="letter">
+    <h2>For My Love 💌</h2>
+    <p class="love-note center">ချစ်ရတဲ့ မားရေ… ❤️
+
+ဒီစာမျက်နှာလေးကို မားအတွက်ပဲ ရည်ရွယ်ပြီး လုပ်ထားတာပါ။
+မားရဲ့နေ့ရက်တိုင်းမှာ ပျော်ရွှင်မှုတွေ ရှိနေပါစေ။
+ဝေးနေရတဲ့အချိန်တွေရှိရင်တောင် ကိုယ့်စိတ်ထဲမှာ မားက အမြဲရှိနေတယ်။
+
+မားကို ချစ်တယ်။
+ဒီနေ့ထက် မနက်ဖြန်မှာ ပိုချစ်သွားမယ်။ 💗</p>
+    <p class="center"><button id="moreHearts">နှလုံးပုံလေးတွေ ပို့မယ် 💕</button></p>
+  </section>
+
+  <section class="card">
+    <h2>Our Little Memories 📸</h2>
+    <p class="center">မားရဲ့ပုံလေးတွေ ထည့်ပြီး ဒီနေရာမှာ အမှတ်တရ Gallery လေးလုပ်လို့ရတယ်။</p>
+    <div class="gallery" id="gallery">
+      <div class="photo-slot">🌷<br>မားရဲ့ပုံလေး ၁</div>
+      <div class="photo-slot">💗<br>မားရဲ့ပုံလေး ၂</div>
+      <div class="photo-slot">✨<br>အမှတ်တရပုံလေး ၃</div>
+    </div>
+    <div class="gallery-tools">
+      <label for="photoPicker" class="upload-label">ပုံရွေးထည့်မယ် 📷</label>
+      <input type="file" id="photoPicker" accept="image/*" multiple>
+    </div>
+    <p class="note-small center">မှတ်ချက် — ဒီနေရာက ပုံရွေးထည့်တာက ကိုယ့်စက်/ဖုန်းထဲမှာပဲ အစမ်းပြတာပါ။ အွန်လိုင်း Website ထဲမှာ ပုံအမြဲပေါ်စေချင်ရင် ပုံဖိုင်တွေကို Website နဲ့အတူ Upload လုပ်ရပါမယ်။</p>
+  </section>
+
+  <section class="card center">
+    <div class="big-heart">💖</div>
+    <h2>Always & Forever</h2>
+    <p class="subtitle">မားက ကိုယ့်အတွက် အထူးဆုံးလူပါ။<br>အမြဲတမ်း ပျော်ရွှင်ပါစေ ချစ်လေး။</p>
+    <p style="font-size:1.7rem">🌸 💗 🌸</p>
+  </section>
+  <footer>Made with love, especially for Ei Ei Soe (မား) ❤️</footer>
+</main>
+<script>
+const hearts = document.getElementById('hearts');
+for(let i=0;i<22;i++){
+  const h=document.createElement('span'); h.className='heart'; h.textContent=['♥','♡','💗'][i%3];
+  h.style.left=(Math.random()*100)+'%'; h.style.animationDuration=(10+Math.random()*13)+'s';
+  h.style.animationDelay=(-Math.random()*18)+'s'; h.style.fontSize=(16+Math.random()*25)+'px'; hearts.appendChild(h);
+}
+document.getElementById('openLetter').addEventListener('click',()=>{
+  const letter=document.getElementById('letter'); letter.classList.remove('hidden'); letter.scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('moreHearts').addEventListener('click',()=>{
+  for(let i=0;i<18;i++){const h=document.createElement('span');h.className='heart';h.textContent='💗';h.style.left=(10+Math.random()*80)+'%';h.style.animationDuration=(4+Math.random()*4)+'s';h.style.fontSize=(18+Math.random()*22)+'px';hearts.appendChild(h);setTimeout(()=>h.remove(),8500);}
+});
+document.getElementById('photoPicker').addEventListener('change',(e)=>{
+  const files=Array.from(e.target.files||[]); if(!files.length)return;
+  const gallery=document.getElementById('gallery'); gallery.innerHTML='';
+  files.slice(0,12).forEach((file)=>{
+    const slot=document.createElement('div');slot.className='photo-slot';const img=document.createElement('img');
+    img.alt='Selected memory photo';img.src=URL.createObjectURL(file);slot.appendChild(img);gallery.appendChild(slot);
+  });
+});
+</script>
+</body>
+</html>
