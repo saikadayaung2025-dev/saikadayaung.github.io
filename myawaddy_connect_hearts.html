@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MYAWADDY — Connect Hearts</title>
+<style>
+:root{--bg:#061321;--panel:#0c2034;--panel2:#102940;--gold:#f4bd4f;--text:#f6f7fb;--muted:#a9bacb;--line:#294158;--pink:#ff7194}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% 0%,#17334b 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 5%;border-bottom:1px solid var(--line);position:sticky;top:0;background:#061321ed;backdrop-filter:blur(12px);z-index:5;gap:15px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px;color:var(--gold);font-size:23px}.brand span{display:block;font-size:10px;letter-spacing:.5px;color:var(--muted);font-weight:500}
+nav{display:flex;gap:6px;flex-wrap:wrap}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:10px 14px}button:hover{border-color:var(--gold)}button.gold{background:linear-gradient(135deg,#ffda7b,var(--gold));color:#17202a;border:0;font-weight:800}button.active{border-color:var(--gold);color:var(--gold)}
+main{max-width:1200px;margin:auto;padding:24px 18px 50px}.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:20px;align-items:stretch}.hero-copy,.signup,.section,.profile,.modalbox{background:linear-gradient(145deg,#102940,#081a2b);border:1px solid var(--line);border-radius:20px}.hero-copy{padding:clamp(24px,5vw,55px);min-height:320px;position:relative;overflow:hidden}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.12;margin:14px 0}.hero p{color:var(--muted);max-width:540px;line-height:1.7}.heart{color:var(--gold)}.signup{padding:24px;display:flex;flex-direction:column;gap:12px}.signup h2{margin:0}.muted{color:var(--muted)}input,select,textarea{width:100%;padding:12px;background:#071727;color:var(--text);border:1px solid var(--line);border-radius:9px;outline:none}input:focus,select:focus{border-color:var(--gold)}.section{padding:20px;margin-top:22px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}.section h2{margin:0;font-size:21px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters input,.filters select{width:auto;min-width:130px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.profile{overflow:hidden}.avatar{height:175px;display:flex;align-items:center;justify-content:center;font-size:62px;background:linear-gradient(145deg,#274d68,#132a40);position:relative}.online{position:absolute;left:10px;top:10px;background:#092016;color:#7df0a8;border:1px solid #275d42;border-radius:20px;font-size:11px;padding:4px 8px}.profile-body{padding:14px}.profile h3{margin:0 0 5px}.profile p{font-size:13px;color:var(--muted);margin:5px 0 12px;min-height:35px}.actions{display:flex;gap:7px}.actions button{flex:1;padding:8px 4px}.like{color:var(--pink)}.empty{padding:30px;text-align:center;color:var(--muted);grid-column:1/-1}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:9px 13px;border:1px solid var(--line);border-radius:30px;color:var(--muted);cursor:pointer}.chip.selected{border-color:var(--gold);color:var(--gold);background:#f4bd4f12}.notice{padding:12px;border:1px solid #6c562b;border-radius:10px;background:#342b171f;color:#f7d98c;font-size:13px;line-height:1.5}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}.modal.show{display:flex}.modalbox{width:min(460px,100%);padding:24px}.modalbox h2{margin-top:0}.row{display:flex;gap:10px}.row>*{flex:1}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#f4bd4f;color:#111;padding:12px 18px;border-radius:12px;display:none;z-index:30;font-weight:700;max-width:90vw}.toast.show{display:block}footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--line);font-size:13px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}header{position:static}}@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:9px}.avatar{height:135px}.profile-body{padding:10px}.profile h3{font-size:15px}.actions button{font-size:12px}.brand{font-size:19px}main{padding:14px 10px 30px}.section{padding:13px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">♡ MYAWADDY <span>CONNECT HEARTS · BUILD HAPPINESS</span></div>
+ <nav>
+  <button class="active" data-view="explore">⌂ Explore</button><button data-view="matches">♡ Matches <b id="matchCount">0</b></button><button data-view="messages">✉ Messages</button><button data-view="myprofile">♙ My Profile</button>
+ </nav>
+ <button class="gold" id="loginTop">Login / Join</button>
+</header>
+<main>
+<section class="hero">
+ <div class="hero-copy">
+  <div class="eyebrow">MYAWADDY <span class="heart">♡</span></div>
+  <h1>မင်းရဲ့ အထူးသူကို<br><span style="color:var(--gold)">ရှာဖွေလိုက်ပါ။</span></h1>
+  <p>Find your special someone. မိတ်ဆွေသစ်တွေ့ဖို့၊ စိတ်တူသူတွေ ချိတ်ဆက်ဖို့ Myawaddy ကနေ စတင်လိုက်ပါ။</p>
+  <div class="chips"><span class="chip selected">♡ Meaningful connections</span><span class="chip">✦ Local discovery</span><span class="chip">✓ Safety first</span></div>
+  <br><button class="gold" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})">လူတွေကို ရှာမယ် →</button>
+ </div>
+ <form class="signup" id="signupForm">
+  <h2>Join Myawaddy</h2><div class="muted">ကိုယ့်အကြောင်းလေး မိတ်ဆက်ပြီး စတင်လိုက်ပါ။</div>
+  <input id="newName" placeholder="အမည် / Display name" required maxlength="40">
+  <div class="row"><input id="newAge" type="number" min="18" max="100" placeholder="အသက် (18+)" required><select id="newGender"><option value="">Gender</option><option>Woman</option><option>Man</option><option>Other</option></select></div>
+  <select id="newCity"><option>Myawaddy</option><option>Mae Sot</option><option>Yangon</option><option>Mandalay</option><option>Other</option></select>
+  <input id="newBio" placeholder="ဝါသနာ / ကိုယ့်အကြောင်း (optional)" maxlength="120">
+  <button class="gold" type="submit">Create demo profile</button>
+  <div class="notice">ဒီဟာက စမ်းသပ် Prototype ဖြစ်ပါတယ်။ တကယ့်အကောင့်၊ ဓာတ်ပုံသိမ်းဆည်းမှုနဲ့ လုံခြုံတဲ့ Login ကို မချိတ်ဆက်ရသေးပါ။ အသက် ၁၈ နှစ်နှင့်အထက် အသုံးပြုသူများအတွက်သာ ရည်ရွယ်ထားသည်။</div>
+ </form>
+</section>
+<section class="section" id="members">
+ <div class="section-head"><h2 id="listTitle">♡ Discover People</h2><div class="filters"><input id="search" placeholder="နာမည်၊ နေရာ ရှာရန်…"><select id="cityFilter"><option value="">နေရာအားလုံး</option><option>Myawaddy</option><option>Mae Sot</option><option>Yangon</option><option>Mandalay</option><option>Other</option></select><select id="ageFilter"><option value="">အသက်အားလုံး</option><option value="18-24">18–24</option><option value="25-34">25–34</option><option value="35-100">35+</option></select></div></div>
+ <div class="grid" id="profiles"></div>
+</section>
+<section class="section" id="chatSection" style="display:none">
+ <div class="section-head"><h2>✉ Messages</h2><button id="closeChat">Close</button></div>
+ <p class="muted">Demo chat preview — တကယ့် message ပို့ခြင်းကို server နဲ့ ချိတ်ဆက်ရပါမယ်။</p>
+ <div id="chatWith" style="color:var(--gold);font-weight:800;margin:10px 0">ရွေးထားတဲ့သူမရှိသေးပါ</div>
+ <div id="chatLog" style="min-height:90px;padding:12px;background:#071727;border-radius:10px;margin-bottom:10px">မင်္ဂလာပါ 👋</div>
+ <form id="chatForm" class="row"><input id="chatInput" placeholder="စာရေးရန်…" required><button class="gold">Send</button></form>
+</section>
+<section class="section" id="mySection" style="display:none">
+ <div class="section-head"><h2>♙ My Profile</h2><button id="logout">Log out demo</button></div>
+ <div id="myDetails" class="muted">Profile မရှိသေးပါ။ အပေါ်က form မှာ demo profile ဖန်တီးပါ။</div>
+</section>
+<section class="section">
+ <div class="section-head"><h2>♡ ချိတ်ဆက်ရာမှာ လုံခြုံရေးကို ဦးစားပေးပါ</h2></div>
+ <div class="grid">
+  <div><h3>✓ ကိုယ်ရေးအချက်အလက်</h3><p class="muted">အိမ်လိပ်စာ၊ ငွေကြေးအချက်အလက်နဲ့ လျှို့ဝှက်အချက်အလက်တွေ မမျှဝေပါနဲ့။</p></div>
+  <div><h3>⚑ သတိထားပါ</h3><p class="muted">ငွေတောင်းခံမှု၊ လိမ်လည်မှု သို့မဟုတ် ဖိအားပေးမှုတွေရှိရင် ရပ်တန့်ပြီး တိုင်ကြားပါ။</p></div>
+  <div><h3>⛔ Block</h3><p class="muted">မသက်မသာဖြစ်စေသူကို ပိတ်ဆို့နိုင်တဲ့စနစ်ကို Live version မှာ ထည့်သွင်းပါမယ်။</p></div>
+  <div><h3>🔒 Privacy</h3><p class="muted">တကယ့် version မှာ profile visibility နဲ့ account deletion ထည့်သွင်းဖို့ လိုအပ်ပါတယ်။</p></div>
+ </div>
+</section>
+</main>
+<footer>♡ MYAWADDY · Connect Hearts, Build Happiness · Demo website only</footer>
+<div class="modal" id="loginModal"><form class="modalbox" id="loginForm"><h2>Welcome to Myawaddy</h2><p class="muted">ဒီ Prototype မှာ နာမည်ထည့်ပြီး demo login လုပ်နိုင်ပါတယ်။</p><input id="loginName" placeholder="Display name" required><br><br><div class="notice">Demo login သည် လုံခြုံသော authentication မဟုတ်ပါ။ တကယ့် website အတွက် server-side account system လိုအပ်ပါတယ်။</div><br><div class="row"><button type="button" id="cancelLogin">Cancel</button><button class="gold">Continue</button></div></form></div>
+<div class="toast" id="toast"></div>
+<script>
+const sample=[
+{id:1,name:"May Thu",age:23,city:"Myawaddy",gender:"Woman",bio:"ကော်ဖီ၊ ခရီးသွားခြင်းနဲ့ သီချင်းနားထောင်ရတာ ကြိုက်တယ်။",emoji:"🌷",color:"#314e62"},
+{id:2,name:"Ko Htet",age:26,city:"Myawaddy",gender:"Man",bio:"အားကစားနဲ့ ရုပ်ရှင်တွေ စိတ်ဝင်စားတယ်။",emoji:"🧑🏻",color:"#355268"},
+{id:3,name:"Su Myat",age:21,city:"Mae Sot",gender:"Woman",bio:"စာဖတ်တာ၊ ဓာတ်ပုံရိုက်တာ ဝါသနာပါတယ်။",emoji:"🌸",color:"#55405c"},
+{id:4,name:"Min Khant",age:28,city:"Yangon",gender:"Man",bio:"အေးအေးဆေးဆေး စကားပြောရတာ ကြိုက်တယ်။",emoji:"👨🏻",color:"#345b63"},
+{id:5,name:"Thandar",age:25,city:"Myawaddy",gender:"Woman",bio:"အစားအသောက်အသစ်တွေ စမ်းစားရတာ ကြိုက်တယ်။",emoji:"🌼",color:"#654b45"},
+{id:6,name:"Zaw Lin",age:30,city:"Mandalay",gender:"Man",bio:"ဂီတနဲ့ ပြင်ပလှုပ်ရှားမှုတွေကို စိတ်ဝင်စားတယ်။",emoji:"🧑🏽",color:"#4c536c"},
+{id:7,name:"Nandar",age:24,city:"Other",gender:"Woman",bio:"ရိုးသားမှုနဲ့ အပြန်အလှန်လေးစားမှုကို တန်ဖိုးထားတယ်။",emoji:"🌺",color:"#63445a"},
+{id:8,name:"Aung Myo",age:32,city:"Mae Sot",gender:"Man",bio:"နည်းပညာနဲ့ ခရီးသွားခြင်းကို စိတ်ဝင်စားတယ်။",emoji:"👨🏽",color:"#42596c"}];
+let custom=[],liked=new Set(),currentUser=null,chatTarget=null,view="explore";
+const $=id=>document.getElementById(id);
+function toast(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2300)}
+function allPeople(){return [...custom,...sample]}
+function render(){
+ let list=allPeople(),q=$("search").value.toLowerCase(),city=$("cityFilter").value,age=$("ageFilter").value;
+ if(view==="matches")list=list.filter(p=>liked.has(p.id));
+ if(q)list=list.filter(p=>(p.name+" "+p.city+" "+p.bio).toLowerCase().includes(q));
+ if(city)list=list.filter(p=>p.city===city);
+ if(age){let [lo,hi]=age.split("-").map(Number);list=list.filter(p=>p.age>=lo&&p.age<=hi)}
+ $("listTitle").textContent=view==="matches"?"♡ Your Likes & Matches":"♡ Discover People";
+ $("matchCount").textContent=liked.size;
+ $("profiles").innerHTML=list.length?list.map(p=>`<article class="profile"><div class="avatar" style="background:linear-gradient(145deg,${p.color||'#274d68'},#0a1b2b)"><span class="online">● Demo profile</span>${p.emoji||"🙂"}</div><div class="profile-body"><h3>${esc(p.name)}, ${p.age}</h3><div class="muted" style="font-size:12px">⌖ ${esc(p.city)}</div><p>${esc(p.bio||"အကြောင်းအရာ မထည့်ရသေးပါ။")}</p><div class="actions"><button class="like" onclick="toggleLike(${p.id})">${liked.has(p.id)?"♥ Liked":"♡ Like"}</button><button onclick="startChat(${p.id})">✉ Chat</button></div></div></article>`).join(""):'<div class="empty">ဒီ filter နဲ့ ကိုက်ညီသူ မတွေ့ပါ။</div>';
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toggleLike(id){if(liked.has(id)){liked.delete(id);toast("Like ဖြုတ်ပြီးပါပြီ")}else{liked.add(id);toast("Like လုပ်ပြီးပါပြီ — Demo only")}render()}
+function startChat(id){chatTarget=allPeople().find(p=>p.id===id);$("chatSection").style.display="block";$("chatWith").textContent="စကားပြောရန်: "+chatTarget.name+" · Demo";$("chatLog").innerHTML="မင်္ဂလာပါ 👋<br><span class='muted'>ဒီ chat က စမ်းသပ်ပြသမှုသာ ဖြစ်ပါတယ်။</span>";$("chatSection").scrollIntoView({behavior:"smooth"})}
+$("signupForm").addEventListener("submit",e=>{e.preventDefault();let age=Number($("newAge").value);if(age<18){toast("အသက် ၁၈ နှစ်နှင့်အထက် ဖြစ်ရပါမယ်");return}currentUser={name:$("newName").value.trim(),age,gender:$("newGender").value,city:$("newCity").value,bio:$("newBio").value};custom.unshift({...currentUser,id:Date.now(),emoji:"🙂",color:"#38556a"});$("myDetails").innerHTML=`<h3>${esc(currentUser.name)}, ${currentUser.age}</h3><p>${esc(currentUser.gender)} · ${esc(currentUser.city)}</p><p>${esc(currentUser.bio)}</p><div class="notice">ဒီ profile ကို လက်ရှိ browser session အတွင်း demo အနေနဲ့သာ ထည့်ထားပါတယ်။ Database ထဲ သိမ်းထားတာမဟုတ်ပါ။</div>`;toast("Demo profile ဖန်တီးပြီးပါပြီ");render();});
+$("search").addEventListener("input",render);$("cityFilter").addEventListener("change",render);$("ageFilter").addEventListener("change",render);
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>{view=b.dataset.view;document.querySelectorAll("[data-view]").forEach(x=>x.classList.toggle("active",x===b));$("chatSection").style.display=view==="messages"?"block":"none";$("mySection").style.display=view==="myprofile"?"block":"none";if(view==="messages")$("chatSection").scrollIntoView({behavior:"smooth"});else if(view==="myprofile")$("mySection").scrollIntoView({behavior:"smooth"});else $("members").scrollIntoView({behavior:"smooth"});render()}));
+$("loginTop").onclick=()=>$("loginModal").classList.add("show");$("cancelLogin").onclick=()=>$("loginModal").classList.remove("show");
+$("loginForm").addEventListener("submit",e=>{e.preventDefault();currentUser={name:$("loginName").value.trim(),age:18,city:"Myawaddy",bio:""};$("loginModal").classList.remove("show");$("myDetails").innerHTML=`<h3>${esc(currentUser.name)}</h3><div class="notice">Demo login သာ ဖြစ်ပါတယ်။ အကောင့်အတည်ပြုခြင်း မလုပ်ထားပါ။</div>`;toast("Demo login ပြီးပါပြီ");});
+$("logout").onclick=()=>{currentUser=null;$("myDetails").textContent="Profile မရှိသေးပါ။ အပေါ်က form မှာ demo profile ဖန်တီးပါ။";toast("Demo logout ပြီးပါပြီ")};
+$("closeChat").onclick=()=>$("chatSection").style.display="none";
+$("chatForm").addEventListener("submit",e=>{e.preventDefault();if(!$("chatInput").value.trim())return;let p=document.createElement("p");p.style.cssText="text-align:right;color:#ffda7b";p.textContent=$("chatInput").value;$("chatLog").appendChild(p);$("chatInput").value="";toast("Demo message ကိုသာ ပြသထားပါတယ်")});
+render();
+</script>
+</body></html>
